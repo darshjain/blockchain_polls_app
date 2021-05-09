@@ -15,7 +15,12 @@
 <app-poll-create *ngIf="showForm"></app-poll-create>
 <div class="d-flex">
   <div class="container poll-list">
-    <app-poll></app-poll>
+    <app-poll *ngFor="let poll of polls"
+      [Question]="poll.Question"
+      [voted]="poll.voted"
+      [votes]="poll.votes"
+      [PollImage]="poll.image"
+    ></app-poll>
   </div>
   <div class="container poll-detail">Details</div>
 </div>
