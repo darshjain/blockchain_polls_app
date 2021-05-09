@@ -17,13 +17,21 @@
   <div class="container poll-list">
     <app-poll
       *ngFor="let poll of polls"
-      [Question]="poll.Question"
+      [Question]="poll.question"
       [voted]="poll.voted"
-      [votes]="poll.votes"
-      [PollImage]="poll.image"
+      [votes]="poll.results"
+      [PollImage]="poll.thumbnail"
+      (click)="setActivePoll(poll)"
     ></app-poll>
   </div>
   <div class="container poll-detail">
-    <app-poll-vote> </app-poll-vote>
+    <app-poll-vote
+      *ngIf="activePoll"
+      [voted]="activePoll.voted"
+      [question]="activePoll.question"
+      [options]="activePoll.options"
+      [results]="activePoll.results"
+    >
+    </app-poll-vote>
   </div>
 </div>
