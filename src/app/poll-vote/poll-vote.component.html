@@ -1,6 +1,6 @@
-<h3>Poll Question Title</h3>
+<h3>{{ question }}</h3>
 
-<form [formGroup]="voteform" (ngSubmit)="submitForm()">
+<form *ngIf="!voted" [formGroup]="voteform" (ngSubmit)="submitForm()">
   <div class="form-check" *ngFor="let opt of options; let i = index">
     <input
       type="radio"
@@ -14,3 +14,7 @@
     Submit Vote
   </button>
 </form>
+
+<div *ngIf="voted" id="poll-results">
+
+</div>
