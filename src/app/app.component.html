@@ -16,7 +16,7 @@
 <div class="d-flex">
   <div class="container poll-list">
     <app-poll
-      *ngFor="let poll of polls"
+      *ngFor="let poll of polls |async"
       [Question]="poll.question"
       [voted]="poll.voted"
       [votes]="poll.results"
