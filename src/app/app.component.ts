@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PollService } from './poll-service/poll.service';
-import { Poll } from './types';
+import { Poll, PollForm, PollVote } from './types';
 
 @Component({
   selector: 'app-root',
@@ -22,5 +22,12 @@ export class AppComponent {
     setTimeout(() => {
       this.activePoll = poll;
     }, 100);
+  }
+
+  handlePollCreate(poll:PollForm){
+    console.log(poll);
+  }
+  handlePollVote(pollVoted:PollVote){
+    this.ps.vote(pollVoted.id,pollVoted.vote);
   }
 }

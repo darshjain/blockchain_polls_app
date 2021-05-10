@@ -35,7 +35,7 @@ export class PollService {
     console.log(pollId,voteNumber);
   }
 
-  createPoll(question:string,thumbnail:string,options:string[]) {
-    console.log(thumbnail,question,options)
+  createPoll(PollForm) {
+    console.log(PollForm)
   }
 }
