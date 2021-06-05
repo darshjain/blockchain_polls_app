@@ -1,6 +1,25 @@
 # BlockchainPoll
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+## This project uses the following - 
+```
+1. Frontend- 
+- Angular
+- Bootstrap
+- SCSS
+- TypeScript
+- ApexChartJS
+
+2. Backend-
+- NodeJS
+- BlockChain
+- Solidity
+- Ethereum
+
+3. Wallet And Simulation-
+- MetaMask
+- Ganache
+```
 
 ## Development server
 
