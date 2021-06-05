@@ -1,11 +1,11 @@
-.poll-image{
-  overflow: hidden;
+.poll-image {
   width: 100%;
   max-height: 180px;
-  img{
+
+  img {
     height: 180px;
     width: inherit;
-    background-size:cover ;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
   }

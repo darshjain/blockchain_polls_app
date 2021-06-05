@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-poll',
@@ -6,15 +6,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./poll.component.scss'],
 })
 export class PollComponent implements OnInit {
-  @Input() Question: string;
-  @Input() votes: number[];
+  @Input() question: string;
+  @Input() votes: number[]; // [0, 1, 5, 7]
   @Input() voted: boolean;
-  @Input() PollImage:string;
+  @Input() pollImage: string;
 
   numberOfVotes: number;
-  constructor() {
 
-  }
+  constructor() {}
 
   ngOnInit(): void {
     if (this.votes.length) {

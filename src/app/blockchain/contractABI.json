@@ -8,7 +8,7 @@
 			},
 			{
 				"internalType": "string",
-				"name": "_thumbnail",
+				"name": "_thumb",
 				"type": "string"
 			},
 			{

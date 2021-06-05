@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, Input, OnInit, Output ,EventEmitter} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  AfterViewInit,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import ApexCharts from 'apexcharts';
 import { PollVote } from '../types';
@@ -10,33 +17,36 @@ import { PollVote } from '../types';
 })
 export class PollVoteComponent implements AfterViewInit {
   @Input() voted: boolean;
-  @Input() options:string[];
-  @Input() results:number[];
-  @Input() question:string;
-  @Input() id:number;
+  @Input() options: string[];
+  @Input() results: number[];
+  @Input() question: string;
+  @Input() id: number;
 
-  @Output() pollVoted: EventEmitter<PollVote>= new EventEmitter();
+  @Output() pollVoted: EventEmitter<PollVote> = new EventEmitter();
 
-  voteform: FormGroup;
+  voteForm: FormGroup;
+
   constructor(private fb: FormBuilder) {
-    this.voteform = this.fb.group({
+    this.voteForm = this.fb.group({
       selected: this.fb.control('', [Validators.required]),
     });
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
     if (this.voted) {
       this.generateChart();
     }
   }
+
   submitForm() {
-    // console.log(this.voteform.value);
-    const pollVoted:PollVote={
+    const pollVoted: PollVote = {
       id: this.id,
-      vote:this.voteform.get("selected").value,
-    }
+      vote: this.voteForm.get('selected').value,
+    };
+
     this.pollVoted.emit(pollVoted);
   }
+
   generateChart() {
     const options: ApexCharts.ApexOptions = {
       series: [
@@ -61,6 +71,7 @@ export class PollVoteComponent implements AfterViewInit {
         categories: this.options,
       },
     };
+
     const chart = new ApexCharts(
       document.getElementById('poll-results'),
       options
